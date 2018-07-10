@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Car Insurance Quotes Excersize";
+}
+<div class="container">
+<div class="row no-gutters m-3">
+    <div class="glyphicon-credit-card col-sm-12 col-md-10 col-lg-6 mx-auto shadow">
+        <div class="card-header text-center">
+            <h5 class="m-0">Get your car insurance quote now!</h5>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("SaveClientData", "Home", FormMethod.Post))
+            {
+            <div class="row no-gutters">
+                <div class="form-group col-12">
+                    <input name="firstName" type="text" class="form-control col-12" placeholder="First Name" />
+                </div>
+                <div class="form-group col-12">
+                    <input name="lastName" type="text" class="form-control col-12" placeholder="Last Name" />
+                </div>
+                <div class="form-group col-12">
+                    <input name="emailAddress" type="email" class="form-control col-12" placeholder="E-mail" />
+                </div>
+                <div class="form-group col-12 mr-5">
+                    <label>Date of Birth: <input name="dateOfBirth" type="date" class="form-control" /></label>
+                    
+                    <label>Car Year: <input name="carYear" type="date" class="form-control" placeholder="Car Year" /></label>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Car Model: <input name="carModel" type="text" class="form-control col-12" placeholder="Car Model" /></label>
+                </div>
+                <div class="form-group col-md-12">
+                    <label>Car Make: <input name="carMake" type="text" class="form-control col-12" placeholder="Car Make" /></label>
+                </div>
+                <div class="custom-radio form-group col-12">
+                    <div class="col">
+                        Have you ever had a DUI?
+                        <label> No @Html.RadioButton("DUI", "False", true)</label>
+                        <label> Yes @Html.RadioButton("DUI", "True")</label>
+                    </div>
+                </div>
+                <div class="form-group col-12">
+                    <input name="tickets" type="number" class="form-control col-12" placeholder="How many speeding tickets do you have?" />
+                </div>
+                <div class="custom-radio form-group col-12">
+                    <div class="col">
+                        Would you like full coverage?
+                        <label> Yes @Html.RadioButton("coverage", "True", true)</label>
+                        <label> No @Html.RadioButton("coverage", "False")</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-block btn-primary">Submit</button>
+            </div>
+            }
+        </div>
+    </div>
+    </div>
+</div>

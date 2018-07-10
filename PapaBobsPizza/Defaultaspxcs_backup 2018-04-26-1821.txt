@@ -1,0 +1,281 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using PapaBobsPizza.DTO;
+using PapaBobsPizza.Domain;
+
+namespace PapaBobsPizza
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //User Controls
+
+        protected void SizeDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        protected void CrustDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        protected void SausageCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        protected void PepperoniCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        protected void OnionsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        protected void GreenPeppersCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DisplayTotalCost();
+        }
+
+        
+        // Front Page interactive calculation
+
+        public decimal calculateTotalCost()
+        {
+            decimal totalcost = getCrustPrice()
+                + getGreenPeppersPrice()
+                + getSizePrice()
+                + getSausagePrice()
+                + getPepperoniPrice()
+                + getOnionsPrice();
+            return totalcost;
+        }
+        public void DisplayTotalCost()
+        {
+            decimal totalcost = calculateTotalCost();
+            resultLabel.Text = String.Format("{0:C}", totalcost);
+        }
+        private decimal getGreenPeppersPrice()
+        {
+            var pizzaPrices = PizzaPricesManager.getPizzaPrices();
+            decimal price = 0;
+            if (GreenPeppersCheckBox.Checked)
+                price = pizzaPrices.GreenPeppersPrice;
+            else price = 0;
+            return price;
+        }
+
+        private decimal getOnionsPrice()
+        {
+            var pizzaPrices = PizzaPricesManager.getPizzaPrices();
+            decimal price = new decimal();
+            if (OnionsCheckBox.Checked)
+                price = pizzaPrices.OnionsPrice;
+            else price = 0;
+            return price;
+        }
+
+        private decimal getPepperoniPrice()
+        {
+            var pizzaPrices = PizzaPricesManager.getPizzaPrices();
+            decimal price = new decimal();
+            if (PepperoniCheckBox.Checked)
+                price = pizzaPrices.PepperoniPrice;
+            else price = 0;
+            return price;
+        }
+
+        private decimal getSausagePrice()
+        {
+            var pizzaPrices = PizzaPricesManager.getPizzaPrices();
+            decimal price = new decimal();
+            if (SausageCheckBox.Checked)
+                price = pizzaPrices.SausagePrice;
+            else price = 0;
+            return price;
+        }
+
+        private decimal getSizePrice()
+        {
+            var pizzaprices = PizzaPricesManager.getPizzaPrices();
+            decimal price = new decimal();
+            if (CrustDropDownList.SelectedValue != "")
+            {
+                switch ((DTO.Enums.SizeType)Enum.Parse(typeof(DTO.Enums.SizeType), (SizeDropDownList.SelectedValue)))
+                {
+                    case DTO.Enums.SizeType.Small:
+                        price = pizzaprices.SmallPizzaPrice;
+                        break;
+                    case DTO.Enums.SizeType.Medium:
+                        price = pizzaprices.MediumPizzaPrice;
+                        break;
+                    case DTO.Enums.SizeType.Large:
+                        price = pizzaprices.LargePizzaPrice;
+                        break;
+                    default:
+                        break;
+                }
+                return price;
+            }
+            else return 0;
+        }
+
+        private decimal getCrustPrice()
+        {
+            var pizzaprices = PizzaPricesManager.getPizzaPrices();
+            decimal price = new decimal();
+            if (CrustDropDownList.SelectedValue != "")
+            {
+                switch ((DTO.Enums.CrustType)Enum.Parse(typeof(DTO.Enums.CrustType), CrustDropDownList.SelectedValue))
+                {
+                    case DTO.Enums.CrustType.Regular:
+                        price = pizzaprices.ThinPizzaPrice;
+                        break;
+                    case DTO.Enums.CrustType.Thin:
+                        price = pizzaprices.RegularPizzaPrice;
+                        break;
+                    case DTO.Enums.CrustType.Thick:
+                        price = pizzaprices.ThickPizzaPrice;
+                        break;
+                    default:
+                        break;
+                }
+                return price;
+            }
+            else return 0;
+        }
+
+        
+        //Validation before submitting data to database
+
+        private bool validateData()
+        {
+            if (validateCrust()
+                && validateSize()
+                && validateName()
+                && validateAddress()
+                && validateZip()
+                && validatePhone())
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private bool validateCrust()
+        {
+            if (CrustDropDownList.SelectedValue == String.Empty)
+            {
+                WarningLabel.Text = "Please select a crust.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            else return true;
+        }
+
+        private bool validateSize()
+        {
+            if (SizeDropDownList.SelectedValue == String.Empty)
+            {
+                WarningLabel.Text = "Please select a size.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            else return true;
+
+            //var crust = CrustDropDownList.SelectedValue;
+            //var name = NameTextBox.Text.Trim().Length;
+            //var address = AddressTextBox.Text.Trim().Length;
+            //var zip = ZipTextBox.Text.Trim().Length;
+            //var phone = PhoneTextBox.Text.Trim().Length;
+
+        }
+
+        private bool validateName()
+        {
+            if (NameTextBox.Text.Trim().Length == 0)
+            {
+                WarningLabel.Text = "Please enter a Name.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            else return true;
+        }
+        private bool validateAddress()
+        {
+            if (AddressTextBox.Text.Trim().Length == 0)
+            {
+                WarningLabel.Text = "Please enter an Address.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            else return true;
+
+        }
+        private bool validateZip()
+        {
+            if (ZipTextBox.Text.Trim().Length == 0)
+            {
+                WarningLabel.Text = "Please enter a Zip.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            return true;
+        }
+        private bool validatePhone()
+        {
+            if (PhoneTextBox.Text.Trim().Length == 0)
+            {
+                WarningLabel.Text = "Please enter a Phone number.";
+                WarningLabel.Visible = true;
+                return false;
+            }
+            return true;
+        }
+
+
+        private void buildOrder()
+        {
+            DTOOrder Order = new DTOOrder();
+            Order.Id = Guid.NewGuid();
+            Order.Address = AddressTextBox.Text;
+            Order.Crust = (DTO.Enums.CrustType)Enum.Parse(typeof(DTO.Enums.CrustType), CrustDropDownList.SelectedValue);
+            Order.GreenPeppers = (GreenPeppersCheckBox.Checked) ? true : false;
+            Order.Name = NameTextBox.Text;
+            Order.Onions = (OnionsCheckBox.Checked) ? true : false;
+            Order.PaymentType = (CreditRadioButton.Checked) ? DTO.Enums.PaymentType.Credit : DTO.Enums.PaymentType.Cash;
+            Order.Pepperoni = (PepperoniCheckBox.Checked) ? true : false;
+            Order.Phone = PhoneTextBox.Text;
+            Order.Sausage = (SausageCheckBox.Checked) ? true : false;
+            Order.Size = (DTO.Enums.SizeType)Enum.Parse(typeof(DTO.Enums.SizeType), SizeDropDownList.SelectedValue);
+            Order.TotalCost = calculateTotalCost();
+            Order.Zip = ZipTextBox.Text;
+            OrdersManager.SaveOrder(Order);
+        }
+        
+        protected void OrderButton_Click(object sender, EventArgs e)
+        {
+            if (validateData())
+            {
+                buildOrder();
+                Response.Redirect("OrderSuccess.html");
+            }
+        }
+        
+        protected void CreditRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            calculateTotalCost();
+        }
+    }
+}

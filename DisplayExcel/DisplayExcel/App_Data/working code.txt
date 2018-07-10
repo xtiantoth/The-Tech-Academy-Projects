@@ -1,0 +1,64 @@
+﻿using System;
+using System.Data;
+using System.Data.OleDb;
+
+
+namespace DisplayExcel
+{
+    public partial class Default : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string fileName = @"c:\Users\User\source\repos\DisplayExcel\DisplayExcel\App_Data\ExcelDatabase2.xlsx";
+            string sConnectionString = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source='{0}';Extended Properties='Excel 12.0 Xml;HDR=YES;'", fileName);
+
+            OleDbConnection connectionObject = new OleDbConnection(sConnectionString);
+            connectionObject.Open();
+
+            OleDbCommand selectionCommand = new OleDbCommand("SELECT * FROM [sheet1$]", connectionObject);
+
+            OleDbDataAdapter objAdapter = new OleDbDataAdapter();
+
+            objAdapter.SelectCommand = selectionCommand;
+
+            DataSet excelDataSet = new DataSet();
+
+            objAdapter.Fill(excelDataSet, "XLData");
+
+            DataTableCollection excelTables = excelDataSet.Tables;
+           
+            GridView1.DataSource = excelDataSet.Tables[0].DefaultView;
+            GridView1.DataBind();
+            connectionObject.Close();
+
+        }
+        protected void AddButton_Click(object sender, EventArgs e)
+        {
+            string fileName = @"c:\Users\User\source\repos\DisplayExcel\DisplayExcel\App_Data\ExcelDatabase2.xlsx";
+            string sConnectionString = String.Format(@"Provider=Microsoft.ACE.OLEDB.12.0; Data Source='{0}';Extended Properties='Excel 12.0 Xml;HDR=YES;'", fileName);
+            
+
+            OleDbConnection connectionObject = new OleDbConnection(sConnectionString);
+            connectionObject.Open();
+
+            OleDbCommand selectionCommand = new OleDbCommand("SELECT * FROM [sheet1$]", connectionObject);
+            OleDbCommand insertCommand = new OleDbCommand("insert into [sheet1$] (Name, Age) values ('" + this.NameTextBox.Text + "','" + this.AgeTextBox.Text + "')",connectionObject);
+
+            OleDbDataAdapter objAdapter = new OleDbDataAdapter();
+
+            objAdapter.InsertCommand = insertCommand;
+
+            insertCommand.ExecuteNonQuery();
+
+            DataSet excelDataSet = new DataSet();
+
+            objAdapter.SelectCommand = selectionCommand;
+
+            objAdapter.Fill(excelDataSet, "XLData");
+
+            GridView1.DataSource = excelDataSet.Tables[0].DefaultView;
+            GridView1.DataBind();
+            connectionObject.Close();
+        }
+    }
+}

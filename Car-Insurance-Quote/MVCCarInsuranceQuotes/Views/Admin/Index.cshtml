@@ -1,0 +1,45 @@
+﻿@using MVCCarInsuranceQuotes.Models;
+@model List<QuoteRequestMV>
+@{ViewBag.Title = "Insurance quotes";}
+
+<div class="container">
+    <div class="row no-gutters m-3">
+        <div class="glyphicon-credit-card col-sm-12 col-md-10 col-lg-12 mx-auto shadow">
+            <div class="card-header text-center">
+                <h5 class="m-0">@ViewBag.Title</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-2 col-12">
+                    <div class="col-3">
+                        <h5>First Name</h5>
+                    </div>
+                    <div class="col-3">
+                        <h5>Last Name</h5>
+                    </div>
+                    <div class="col-3">
+                        <h5>E-mail address</h5>
+                    </div>
+                    <div class="col-3">
+                        <h5>Quote</h5>
+                    </div>
+                </div>
+                @foreach (var quote in Model)
+                {
+                    <div class="row mb-1 col-12">
+                        <div class="col-3">
+                            @quote.FirstName
+                        </div>
+                        <div class="col-3">
+                            @quote.LastName
+                        </div>
+                        <div class="col-3">
+                            @quote.EmailAddress
+                        </div>
+                        <div class="col-3">
+                            USD @String.Format("{0:C2}",quote.Quote)
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,19 @@
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.csprojResolveAssemblyReference.cache
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.csproj.CoreCompileInputs.cache
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll.config
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.pdb
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll
+C:\Users\Oscar\source\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.pdb
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll.config
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\CS-ASP_051-MegaChallangeWarGame-2nd-Try.pdb
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.csprojAssemblyReference.cache
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.csproj.CoreCompileInputs.cache
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.csproj.CopyComplete
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.dll
+d:\Coding\Visual Studio\repos\CS-ASP_051-MegaChallangeWarGame-2nd-Try\CS-ASP_051-MegaChallangeWarGame-2nd-Try\obj\Debug\CS-ASP_051-MegaChallangeWarGame-2nd-Try.pdb
